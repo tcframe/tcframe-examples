@@ -25,7 +25,7 @@ protected:
     }
 
     void Constraints() {
-        CONS(1 <= N && N <= 100000);
+        CONS(2 <= N && N <= 100000);
         CONS(eachElementBetween(A, -1000000, 1000000));
     }
 
@@ -86,9 +86,9 @@ protected:
         CASE(N = 100, randomElements(20, 50));
         CASE(N = 1000, randomElements(300, 300));
         CASE(N = 10000, randomElements(2500, 6000));
-        CASE(N = 100000, randomElements(50000, 50000));
 
         // The maximum value of N
+        CASE(N = 100000, randomElements(50000, 50000));
         CASE(N = 100000, randomElements(10000, 80000));
         CASE(N = 100000, randomElements(80000, 10000));
     }
