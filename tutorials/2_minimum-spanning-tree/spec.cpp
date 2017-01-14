@@ -42,6 +42,8 @@ protected:
         CONS(allAreEqual(W));
     }
 
+    void Subtask3() {}
+
 private:
     bool eachElementBetween(const vector<int>& v, int lo, int hi) {
         for (int x : v) {
@@ -52,7 +54,7 @@ private:
         return true;
     }
 
-    bool allAreEqual(const vector<int> &v) {
+    bool allAreEqual(const vector<int>& v) {
         for (int x : v) {
             if (x != v[0]) {
                 return false;
@@ -61,7 +63,7 @@ private:
         return true;
     }
 
-    bool noSelfLoop(const vector<int> &U, const vector<int> &V) {
+    bool noSelfLoop(const vector<int>& U, const vector<int>& V) {
         for (int i = 0; i < (int)U.size(); ++i) {
             if (U[i] == V[i]) {
                 return false;
@@ -70,7 +72,7 @@ private:
         return true;
     }
 
-    bool isConnected(const int &N, const vector<int> &U, const vector<int> &V) {
+    bool isConnected(const int& N, const vector<int>& U, const vector<int>& V) {
         vector<bool> isVisited(N);
         vector<vector<int>> adj(N);
         for (int i = 0; i < (int)U.size(); ++i) {
@@ -182,13 +184,13 @@ protected:
     }
 
 private:
-    void randomWeight(int M, vector<int> &W, int minW = 1, int maxW = 1000) {
+    void randomWeight(int M, vector<int>& W, int minW = 1, int maxW = 1000) {
         for (int i = 0; i < M; ++i) {
             W.push_back(rnd.nextInt(minW, maxW));
         }
     }
 
-    void renumber(int N, vector<int> &U, vector<int> &V) {
+    void renumber(int N, vector<int>& U, vector<int>& V) {
         vector<int> permutation;
         for (int i = 0; i < N; ++i) {
             permutation.push_back(i);
@@ -200,7 +202,7 @@ private:
         }
     }
 
-    void randomTree(int N, vector<int> &U, vector<int> &V) {
+    void randomTree(int N, vector<int>& U, vector<int>& V) {
         for (int i = 1; i < N; ++i) {
             U.push_back(i);
             V.push_back(rnd.nextInt(0, i - 1));
@@ -208,7 +210,7 @@ private:
         renumber(N, U, V);
     }
 
-    void randomGraph(int N, int M, vector<int> &U, vector<int> &V) {
+    void randomGraph(int N, int M, vector<int>& U, vector<int>& V) {
         randomTree(N, U, V);
         while (U.size() < M) {
             int u = rnd.nextInt(0, N - 2);
