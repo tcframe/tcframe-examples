@@ -72,7 +72,7 @@ private:
         return true;
     }
 
-    bool isConnected(const int& n, const vector<int>& u, const vector<int>& v) {
+    bool isConnected(int n, const vector<int>& u, const vector<int>& v) {
         vector<bool> isVisited(n);
         vector<vector<int>> adj(n);
         for (int i = 0; i < u.size(); i++) {
@@ -137,12 +137,12 @@ protected:
     void TestGroup2() {
         Subtasks({1, 3});
         
+        // We manually create a small test case where greedily choosing
+        // the first N - 1 edges with smallest weight will create a cycle.
         CASE(N = 4, M = 4,
              U = {0, 1, 2, 0},
              V = {1, 2, 0, 3},
              W = {1, 1, 1, 2});
-        // We manually create a small test case where greedily choosing
-        // the first N - 1 edges with smallest weight will create a cycle.
 
         CASE(N = 2, M = 2, U = {0, 1}, V = {1, 0}, W = {1, 2});
         CASE(N = 21, M = 20, randomTree(N, U, V), randomWeight(M, W));
