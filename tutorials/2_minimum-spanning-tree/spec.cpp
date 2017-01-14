@@ -63,21 +63,21 @@ private:
         return true;
     }
 
-    bool noSelfLoop(const vector<int>& U, const vector<int>& V) {
-        for (int i = 0; i < U.size(); i++) {
-            if (U[i] == V[i]) {
+    bool noSelfLoop(const vector<int>& u, const vector<int>& v) {
+        for (int i = 0; i < u.size(); i++) {
+            if (u[i] == v[i]) {
                 return false;
             }
         }
         return true;
     }
 
-    bool isConnected(const int& N, const vector<int>& U, const vector<int>& V) {
-        vector<bool> isVisited(N);
-        vector<vector<int>> adj(N);
-        for (int i = 0; i < U.size(); i++) {
-            adj[U[i]].push_back(V[i]);
-            adj[V[i]].push_back(U[i]);
+    bool isConnected(const int& n, const vector<int>& u, const vector<int>& v) {
+        vector<bool> isVisited(n);
+        vector<vector<int>> adj(n);
+        for (int i = 0; i < u.size(); i++) {
+            adj[u[i]].push_back(v[i]);
+            adj[v[i]].push_back(u[i]);
         }
         int numNodesVisited = 0;
         queue<int> q;
@@ -94,7 +94,7 @@ private:
                 q.push(v);
             }
         }
-        return numNodesVisited == N;
+        return numNodesVisited == n;
     }
 };
 
@@ -141,6 +141,8 @@ protected:
              U = {0, 1, 2, 0},
              V = {1, 2, 0, 3},
              W = {1, 1, 1, 2});
+        // We manually create a small test case where greedily choosing
+        // the first N - 1 edges with smallest weight will create a cycle.
 
         CASE(N = 2, M = 2, U = {0, 1}, V = {1, 0}, W = {1, 2});
         CASE(N = 21, M = 20, randomTree(N, U, V), randomWeight(M, W));
