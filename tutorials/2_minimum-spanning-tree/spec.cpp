@@ -35,14 +35,20 @@ protected:
     }
 
     void Subtask1() {
+        Points(20);
+
         CONS(M <= 20);
     }
 
     void Subtask2() {
+        Points(30);
+
         CONS(allAreEqual(W));
     }
 
-    void Subtask3() {}
+    void Subtask3() {
+        Points(50);
+    }
 
 private:
     bool eachElementBetween(const vector<int>& v, int lo, int hi) {
@@ -136,7 +142,7 @@ protected:
 
     void TestGroup2() {
         Subtasks({1, 3});
-        
+
         // We manually create a small test case where greedily choosing
         // the first N - 1 edges with smallest weight will create a cycle.
         CASE(N = 4, M = 4,
